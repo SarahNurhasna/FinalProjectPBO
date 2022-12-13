@@ -11,6 +11,8 @@ Untuk final project, saya ingin mengimpelentasikan materi OOP dengan menggunakan
 
 Link sources: 
 https://zetcode.com/javagames/
+
 https://youtu.be/8gMd0ftWp_Y
+
 https://codereview.stackexchange.com/questions/156187/snake-game-in-java
 
