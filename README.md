@@ -37,6 +37,26 @@ parameter yang berbeda yaitu sebagai berikut.
 Encapsulation
 Pada project ini saya menggunakan public, private dan final class
 
+Inheritance
+
+Polymorphism
+
+ArrayList 
+
+Exception Handling
+
+GUI 
+
+Interface
+
+Abstract Class
+
+Generics
+
+Collection 
+
+Input Output 
+
 
 
 
