@@ -19,6 +19,10 @@ Kelas : PBO B
 
 * https://codereview.stackexchange.com/questions/156187/snake-game-in-java
 
+## Visualisasi Game
+
+https://youtu.be/p52aLVwrgbs 
+
 ## Aspek OOP
 
 1. Casting/Conversion
