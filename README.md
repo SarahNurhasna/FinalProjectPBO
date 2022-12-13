@@ -63,17 +63,22 @@ Saya menggunakan ArrayList untuk menyimpan data highscore pemain di dalam file.
 
 9. Exception Handling
 
-GUI 
+Saya mengaplikasikan exception handling ketika memasukkan input data highscore ke dalam file dan juga ketika melakukan run program. Berikut salah satunya.
 
-Interface
+10. GUI
 
-Abstract Class
+GUI yang saya gunakan yaitu Jframe, Jpanel dengan memanfaatkan java.util, java.awt, dan java.swing, saya menggunakan paintComponent untuk menghasilkan gambar balok dan tulisan.
 
-Generics
+11. Generics
 
-Collection 
+Generics yang saya gunakan adalah enumeration pada class Direction yaitu sebagai berikut.
 
-Input Output 
+12. Collection
+
+Collection yang saya gunakan yaitu list menggunakan ArrayList untuk menginput dan menyimpan data high score pemain.
+
+13. Input Output 
+Input Output saya gunakan agar high score pemain bisa tersimpan di dalam file.
 
 
 
