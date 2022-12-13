@@ -71,7 +71,7 @@ parameter yang berbeda yaitu sebagai berikut.
 
 Pada program ini saya banyak melakukan overriding class dari java.awt, berikut salah satunya
 
-  public void actionPerformed(ActionEvent e){
+    public void actionPerformed(ActionEvent e){
         if(running){
             move(blockDirection); 
             checkBlocks();
@@ -93,37 +93,110 @@ Pada project ini saya menggunakan public, private dan final, salah satunya yaitu
 
 Pada class GamePanel saya menerapkan Inheritance pada constructor public void paintComponent(Graphics g) sebagai childclass dan memiliki methods dari superclass pada JComponent di java.swing.
 
+    @Override
+    public void paintComponent(Graphics g){
+        super.paintComponent(g);
+        draw(g);
+    }
+
 7. Polymorphism
 
 Class GameFrame memiliki subclass yaitu Class PlayGame. Selain itu saya juga sudah menerapkan polymorphism statis (overloading) dan polymorphism dinamis (overriding)
+
+    public class PlayGame extends GameFrame{
+    
+      public static void main(String[] args) {
+          //GameFrame frame = new GameFrame(); 
+        new GameFrame();
+        }  
+    }
 
 8. ArrayList 
 
 Saya menggunakan ArrayList untuk menyimpan data highscore pemain di dalam file.
 
+    public ArrayList<Integer> HighScore = new ArrayList<>();
+
 9. Exception Handling
 
 Saya mengaplikasikan exception handling ketika memasukkan input data highscore ke dalam file dan juga ketika melakukan run program. Berikut salah satunya.
+
+     @Override
+      public void run(){
+          while(true){
+              try{
+                  Thread.sleep(50);
+             }
+             catch(Exception e){
+                 e.printStackTrace();
+                  break;
+              }
+          }
+     }
 
 10. GUI
 
 GUI yang saya gunakan yaitu Jframe, Jpanel dengan memanfaatkan java.util, java.awt, dan java.swing, saya menggunakan paintComponent untuk menghasilkan gambar balok dan tulisan.
 
+    import javax.swing.*;
+    import javax.swing.JPanel;
+    import java.awt.*;
+    import java.awt.event.*;
+    import java.util.Random;
+    
+    g.setColor(new Color(0,191,255));
+            g.fillRect(block_x, block_y, UNIT_SIZE, UNIT_SIZE);
+
 11. Generics
 
 Generics yang saya gunakan adalah enumeration pada class Direction yaitu sebagai berikut.
+
+      public enum Directions {
+        LEFT, 
+        RIGHT, 
+        UP, 
+        DOWN;
+    
+        public boolean compatibleWith(Directions newDirection) {
+            if (this.equals(LEFT) || this.equals(RIGHT)) {
+                return UP.equals(newDirection) || DOWN.equals(newDirection); 
+            } else {
+                return LEFT.equals(newDirection) || RIGHT.equals(newDirection);
+            }
+        }
+      }
 
 12. Collection
 
 Collection yang saya gunakan yaitu list menggunakan ArrayList untuk menginput dan menyimpan data high score pemain.
 
+    public ArrayList<Integer> HighScore = new ArrayList<>();
+
+    HighScore.add(score);
+
 13. Input Output 
+
 Input Output saya gunakan agar high score pemain bisa tersimpan di dalam file.
 
-
-
-
-
-
-
-
+      public int GetHighScore(){
+        FileReader readFile = null;
+        BufferedReader reader = null;
+        try{
+            readFile = new FileReader("highscore.dat");
+            reader = new BufferedReader(readFile);
+            return reader.read();
+        }
+        catch(Exception e){
+            return 0;
+        }
+        finally{
+            try{
+                if(reader != null){
+                   reader.close(); 
+                }
+            }
+            catch(IOException e){
+                e.printStackTrace();
+            }
+        }
+    }
