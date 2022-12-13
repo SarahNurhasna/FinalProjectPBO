@@ -79,7 +79,7 @@ public class GamePanel extends JPanel implements Runnable, ActionListener{
         timer.start();
     }
     
-    @Override //polimorphism because super?
+    @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         draw(g);
