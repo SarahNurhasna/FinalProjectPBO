@@ -303,6 +303,14 @@ public class GamePanel extends JPanel implements Runnable, ActionListener{
         }
     }
     
+    public String highScore(String name){
+        return name;
+    }
+    
+    public int highScore(int total){
+        return total;
+    }
+    
     @Override
     public void run(){
         while(true){
