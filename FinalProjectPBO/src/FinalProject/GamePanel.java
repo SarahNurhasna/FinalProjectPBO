@@ -15,7 +15,6 @@ import java.awt.event.*;
 import java.util.Random;
 import java.nio.*;
 import java.io.*;
-import java.util.ArrayList;
 //import javax.swing.JPanel;
 //import java.awt.event.ActionListener;
 //import java.awt.event.ActionEvent;
@@ -45,23 +44,13 @@ public class GamePanel extends JPanel implements Runnable, ActionListener{
     private int greenBlock_x;
     private int greenBlock_y;
     
-    
-    
     boolean running = false;
     private Directions blockDirection = Directions.RIGHT; 
     private boolean isDirectionChanged = false;
     Timer timer;
     Random random;
     
-    
     private int highScore = 0;
-    public String highScore(String name){
-        return name;
-    }
-    
-    public int highScore(int total){
-        return total;
-    }
     
     public GamePanel(int block_x, int block_y) {
         this.block_x = block_x;
@@ -152,22 +141,23 @@ public class GamePanel extends JPanel implements Runnable, ActionListener{
         block_y = random.nextInt((int)(SCREEN_HEIGHT/UNIT_SIZE))*UNIT_SIZE;//casting
     }
     
-    public void newRedBlock(){ //generate coordinate of the new blue block
+    public void newRedBlock(){ //generate coordinate of the new red block
         redBlock_x = random.nextInt((int)(SCREEN_WIDTH/UNIT_SIZE))*UNIT_SIZE; //casting
         redBlock_y = random.nextInt((int)(SCREEN_HEIGHT/UNIT_SIZE))*UNIT_SIZE;//casting
     }
     
-    public void newGreenBlock(){ //generate coordinate of the new blue block
+    public void newGreenBlock(){ //generate coordinate of the new green block
         greenBlock_x = random.nextInt((int)(SCREEN_WIDTH/UNIT_SIZE))*UNIT_SIZE; //casting
         greenBlock_y = random.nextInt((int)(SCREEN_HEIGHT/UNIT_SIZE))*UNIT_SIZE;//casting
     }
     
+    //Enum implementation
     public void move(Directions direction){
         for(int i = block; i>0; i--){
             x[i] = x [i-1];
             y[i] = y [i-1];
         }
-        switch(direction){ //bisa pake enum
+        switch(direction){
             case UP:
                 y[0] = y[0] - UNIT_SIZE;
                 break;
@@ -194,6 +184,7 @@ public class GamePanel extends JPanel implements Runnable, ActionListener{
         }
     }
     
+    //Syarat game berakhir
     public void checkCollisions(){
         //kalo kepala kena badan
         for(int i = block; i>0; i--){
@@ -328,12 +319,10 @@ public class GamePanel extends JPanel implements Runnable, ActionListener{
     @Override
     public void actionPerformed(ActionEvent e){
         if(running){
-            move(blockDirection); //move();
+            move(blockDirection); 
             checkBlocks();
             checkCollisions();
-            
         }
-        //checkScore();
         repaint();
     }
     
@@ -368,52 +357,3 @@ public class GamePanel extends JPanel implements Runnable, ActionListener{
     }
     
 }
-
-//    public void move(){
-//        for(int i = block; i>0; i--){
-//            x[i] = x [i-1];
-//            y[i] = y [i-1];
-//        }
-//        switch(direction){ //bisa pake enum
-//            case 'U':
-//                y[0] = y[0] - UNIT_SIZE;
-//                break;
-//            case 'D':
-//                y[0] = y[0] + UNIT_SIZE;
-//                break; 
-//            case 'L':
-//                x[0] = x[0] - UNIT_SIZE;
-//                break;
-//            case 'R':
-//                x[0] = x[0] + UNIT_SIZE;
-//                break;
-//        } 
-//    }
-
-//  public class MyKeyAdapter extends KeyAdapter {
-//        @Override
-//        public void keyPressed(KeyEvent e){
-//            switch(e.getKeyCode()){
-//                case KeyEvent.VK_LEFT:
-//                    if(direction != 'R'){
-//                        direction = 'L';
-//                    }
-//                    break;
-//                case KeyEvent.VK_RIGHT:
-//                    if(direction != 'L'){
-//                        direction = 'R';
-//                    }
-//                    break;
-//                case KeyEvent.VK_UP:
-//                    if(direction != 'D'){
-//                        direction = 'U';
-//                    }
-//                    break;
-//                case KeyEvent.VK_DOWN:
-//                    if(direction != 'U'){
-//                        direction = 'D';
-//                    }
-//                    break;
-//            }
-//        }
-//    }
