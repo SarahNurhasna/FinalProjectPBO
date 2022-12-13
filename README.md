@@ -26,7 +26,10 @@ Kelas : PBO B
 Pada class GamePanel saya melakukan beberapa casting dalam beberapa perhitungan,
 salah satunya pada code berikut.
 
+![image](https://user-images.githubusercontent.com/114993457/207313482-07f4e742-da9b-4b2a-b2cb-eaccbddd1d72.png)
 
+        g.drawString("Score: "+score, 
+           (SCREEN_WIDTH - metr1.stringWidth("Score: "+score))/2, (int)(SCREEN_HEIGHT/1.6)); //casting
 
 pada code tersebut saya melakukan casting untuk posisi koordinat y dari tulisan "score: " karena
 saya melakukan pembagian dengan bilangan desimal sehingga saya melakukan casting (int) agar hasilnya
@@ -36,6 +39,18 @@ menjadi bilangan integer.
 
 Pada class GamePanel terdapat beberapa constructor salah satunya yaitu sebagai berikut.
 
+    public void checkBlocks(){
+        if( (x[0]==block_x) && (y[0]==block_y) ){
+            block++;
+            score++;
+            newBlock();
+            newRedBlock();
+            newGreenBlock();
+            checkScore();
+        }
+    }
+
+
 Constructor tersebut berfungsi untuk mengecek jika balok warna biru berhasil di dapatkan, maka poin akan bertambah dan balok akan semakin panjang. Selain itu constructor ini juga menjalankan fungsi dari constructor lainnya yaitu newBlock(), newRedBlock(), newGreenBlock(), checkScore();
 
 3. Overloading
@@ -43,16 +58,39 @@ Constructor tersebut berfungsi untuk mengecek jika balok warna biru berhasil di 
 Pada class GamePanel terdapat 2 constructor yang memiliki nama dan methods yang sama, namu
 parameter yang berbeda yaitu sebagai berikut.
 
+    public String highScore(String name){
+        return name;
+    }
+    
+    public int highScore(int total){
+        return total;
+    }
+   
+
 4. Overriding
 
-Pada program ini saya banyak melakukan overriding class dari
+Pada program ini saya banyak melakukan overriding class dari java.awt, berikut salah satunya
+
+  public void actionPerformed(ActionEvent e){
+        if(running){
+            move(blockDirection); 
+            checkBlocks();
+            checkCollisions();
+        }
+        repaint();
+    }
 
 5. Encapsulation
 
 Pada project ini saya menggunakan public, private dan final, salah satunya yaitu sebagai berikut.
 
+    private final int x[] = new int[GAME_UNITS];
+    private final int y[] = new int[GAME_UNITS];
+    private int block = 1;
+    private int score = 0;
 
 6. Inheritance
+
 Pada class GamePanel saya menerapkan Inheritance pada constructor public void paintComponent(Graphics g) sebagai childclass dan memiliki methods dari superclass pada JComponent di java.swing.
 
 7. Polymorphism
