@@ -17,3 +17,30 @@ https://youtu.be/8gMd0ftWp_Y
 
 https://codereview.stackexchange.com/questions/156187/snake-game-in-java
 
+Casting/Conversion
+Pada class GamePanel saya melakukan beberapa casting dalam beberapa perhitungan,
+salah satunya pada code berikut.
+
+pada code tersebut saya melakukan casting untuk posisi koordinat y dari tulisan "score: " karena
+saya melakukan pembagian dengan bilangan desimal sehingga saya melakukan casting (int) agar hasilnya
+menjadi bilangan integer.
+
+Constructor
+pada class direction terdapat satu constructor yaitu compatibleWith(Directions newDirection)
+pada class GamePanel terdapat beberapa constructor salah satunya yaitu
+1. public GamePanel(int block_x, int block_y) untuk mendapat nilai block_x dan block_y
+
+Overloading
+Pada class GamePanel terdapat 2 constructor yang memiliki nama dan methods yang sama, namu
+parameter yang berbeda yaitu sebagai berikut.
+
+Encapsulation
+Pada project ini saya menggunakan public, private dan final class
+
+
+
+
+
+
+
+
