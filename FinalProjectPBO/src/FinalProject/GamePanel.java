@@ -15,7 +15,7 @@ import java.awt.event.*;
 import java.util.Random;
 import java.nio.*;
 import java.io.*;
-//import javax.swing.JPanel;
+import javax.swing.JPanel;
 //import java.awt.event.ActionListener;
 //import java.awt.event.ActionEvent;
 //import java.awt.Graphics;
@@ -51,6 +51,8 @@ public class GamePanel extends JPanel implements Runnable, ActionListener{
     Random random;
     
     private int highScore = 0;
+    
+    public ArrayList<Integer> HighScore = new ArrayList<>();
     
     public GamePanel(int block_x, int block_y) {
         this.block_x = block_x;
@@ -249,6 +251,7 @@ public class GamePanel extends JPanel implements Runnable, ActionListener{
         if(score > highScore){
             //user has set a new record
             highScore = score;
+            HighScore.add(score);
             File scoreFile = new File("highscore.dat"); //file yang sudah dibuat sebelumnya
             if(!scoreFile.exists()){
                 try{
